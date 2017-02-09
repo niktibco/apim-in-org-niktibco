@@ -1,0 +1,319 @@
+definitions:
+  PostRequest:
+    properties:
+      Customers:
+        properties:
+          Customer:
+            items:
+              properties:
+                CompanyName:
+                  default: Great Lakes Food Market2
+                  type: string
+                ContactName:
+                  default: Howard Snyder2
+                  type: string
+                ContactTitle:
+                  default: Marketing Manager2
+                  type: string
+                CustomerID:
+                  default: 2
+                  type: integer
+                Fax:
+                  default: (503) 555-7555
+                  type: string
+                FullAddress:
+                  properties:
+                    Address:
+                      default: 2732 Baker Blvd.
+                      type: string
+                    City:
+                      default: Eugene
+                      type: string
+                    Country:
+                      default: USA
+                      type: string
+                    CustomerID:
+                      default: 2
+                      type: integer
+                    PostalCode:
+                      default: "97403"
+                      type: string
+                    Region:
+                      default: OR
+                      type: string
+                  type: object
+                Phone:
+                  default: (503) 555-7555
+                  type: string
+              type: object
+            type: array
+        type: object
+      Orders:
+        properties:
+          Order:
+            items:
+              properties:
+                CustomerID:
+                  default: 2
+                  type: integer
+                EmployeeID:
+                  default: 67
+                  type: integer
+                OrderDate:
+                  default: 1997-05-06T00:00:00Z
+                  format: date-time
+                  type: string
+                RequiredDate:
+                  default: 1997-05-20T00:00:00Z
+                  format: date-time
+                  type: string
+                ShipInfo:
+                  properties:
+                    Freight:
+                      default: 3.35
+                      type: number
+                    ShipAddress:
+                      default: 2732 Baker Blvd.
+                      type: string
+                    ShipCity:
+                      default: Eugene
+                      type: string
+                    ShipCountry:
+                      default: USA
+                      type: string
+                    ShipName:
+                      default: Great Lakes Food Market
+                      type: string
+                    ShipPostalCode:
+                      default: "97403"
+                      type: string
+                    ShipRegion:
+                      default: OR
+                      type: string
+                    ShipVia:
+                      default: 2
+                      type: integer
+                    ShippedDate:
+                      default: 1997-05-20T00:00:00Z
+                      format: date-time
+                      type: string
+                  type: object
+              type: object
+            type: array
+        type: object
+    type: object
+  PostResponse:
+    properties:
+      Customers:
+        properties:
+          Customer:
+            items:
+              properties:
+                CompanyName:
+                  default: Great Lakes Food Market2
+                  type: string
+                ContactName:
+                  default: Howard Snyder2
+                  type: string
+                ContactTitle:
+                  default: Marketing Manager2
+                  type: string
+                CustomerID:
+                  default: 2
+                  type: integer
+                Fax:
+                  default: (503) 555-7555
+                  type: string
+                FullAddress:
+                  properties:
+                    Address:
+                      default: 2732 Baker Blvd.
+                      type: string
+                    City:
+                      default: Eugene
+                      type: string
+                    Country:
+                      default: USA
+                      type: string
+                    CustomerID:
+                      default: 2
+                      type: integer
+                    PostalCode:
+                      default: "97403"
+                      type: string
+                    Region:
+                      default: OR
+                      type: string
+                  type: object
+                Phone:
+                  default: (503) 555-7555
+                  type: string
+              type: object
+            type: array
+        type: object
+      Orders:
+        properties:
+          Order:
+            items:
+              properties:
+                CustomerID:
+                  default: 2
+                  type: integer
+                EmployeeID:
+                  default: 67
+                  type: integer
+                OrderDate:
+                  default: 1997-05-06T00:00:00Z
+                  format: date-time
+                  type: string
+                RequiredDate:
+                  default: 1997-05-20T00:00:00Z
+                  format: date-time
+                  type: string
+                ShipInfo:
+                  properties:
+                    Freight:
+                      default: 3.35
+                      type: number
+                    ShipAddress:
+                      default: 2732 Baker Blvd.
+                      type: string
+                    ShipCity:
+                      default: Eugene
+                      type: string
+                    ShipCountry:
+                      default: USA
+                      type: string
+                    ShipName:
+                      default: Great Lakes Food Market
+                      type: string
+                    ShipPostalCode:
+                      default: "97403"
+                      type: string
+                    ShipRegion:
+                      default: OR
+                      type: string
+                    ShipVia:
+                      default: 2
+                      type: integer
+                    ShippedDate:
+                      default: 1997-05-20T00:00:00Z
+                      format: date-time
+                      type: string
+                  type: object
+              type: object
+            type: array
+        type: object
+    type: object
+info:
+  title: ipaas_1457_NestedComplexArrays
+  version: 1.0.0
+  x-lastModified: Feb 08, 2017 23:00PM PST
+paths:
+  /nested_complex_arrays:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: ""
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/PostRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success response
+          examples:
+            application/json:
+              Customers:
+                Customer:
+                - CompanyName: Great Lakes Food Market
+                  ContactName: Howard Snyder
+                  ContactTitle: Marketing Manager
+                  CustomerID: 1
+                  Fax: (503) 555-7555
+                  FullAddress:
+                    Address: 2732 Baker Blvd.
+                    City: Eugene
+                    Country: USA
+                    CustomerID: 1
+                    PostalCode: "97403"
+                    Region: OR
+                  Phone: (503) 555-7555
+                - CompanyName: Great Lakes Food Market2
+                  ContactName: Howard Snyder2
+                  ContactTitle: Marketing Manager2
+                  CustomerID: 2
+                  Fax: (503) 555-7555
+                  FullAddress:
+                    Address: 2732 Baker Blvd.
+                    City: Eugene
+                    Country: USA
+                    CustomerID: 2
+                    PostalCode: "97403"
+                    Region: OR
+                  Phone: (503) 555-7555
+              Orders:
+                Order:
+                - CustomerID: 1
+                  EmployeeID: 6
+                  OrderDate: 1997-05-06T00:00:00Z
+                  RequiredDate: 1997-05-20T00:00:00Z
+                  ShipInfo:
+                    Freight: 3.35
+                    ShipAddress: 2732 Baker Blvd.
+                    ShipCity: Eugene
+                    ShipCountry: USA
+                    ShipName: Great Lakes Food Market
+                    ShipPostalCode: "97403"
+                    ShipRegion: OR
+                    ShipVia: 2
+                    ShippedDate: 1997-05-20T00:00:00Z
+                - CustomerID: 2
+                  EmployeeID: 67
+                  OrderDate: 1997-05-06T00:00:00Z
+                  RequiredDate: 1997-05-20T00:00:00Z
+                  ShipInfo:
+                    Freight: 3.35
+                    ShipAddress: 2732 Baker Blvd.
+                    ShipCity: Eugene
+                    ShipCountry: USA
+                    ShipName: Great Lakes Food Market
+                    ShipPostalCode: "97403"
+                    ShipRegion: OR
+                    ShipVia: 2
+                    ShippedDate: 1997-05-20T00:00:00Z
+          schema:
+            $ref: '#/definitions/PostResponse'
+  /user:
+    delete:
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success response
+    get:
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success response
+    post:
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success response
+    put:
+      parameters: []
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success response
+swagger: "2.0"
