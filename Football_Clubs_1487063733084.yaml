@@ -1,0 +1,54 @@
+definitions:
+  GiveNewSchemaNameHere:
+    properties:
+      Club is:
+        default: Chelsea
+        type: string
+    type: object
+info:
+  title: Football_Clubs
+  version: 1.2.3
+  x-lastModified: Feb 13, 2017 21:48PM PST
+paths:
+  /{name}:
+    get:
+      parameters:
+      - description: ""
+        format: ""
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success response
+          examples:
+            application/json:
+              Club is: Chelsea
+          schema:
+            $ref: '#/definitions/GiveNewSchemaNameHere'
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - default: null
+        description: name
+        format: int32
+        in: path
+        name: name
+        required: true
+        type: integer
+      - description: File description
+        format: text
+        in: formData
+        name: file
+        required: false
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Success response
+swagger: "2.0"
